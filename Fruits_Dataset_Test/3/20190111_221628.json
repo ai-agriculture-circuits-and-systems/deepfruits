@@ -1,0 +1,34 @@
+{
+  "info": {
+    "description": "data",
+    "version": "1.0",
+    "year": 2025,
+    "contributor": "search engine",
+    "source": "no_augmentation",
+    "license": {
+      "name": "Creative Commons Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "images": [
+    {
+      "id": 1818545704,
+      "width": 64,
+      "height": 64,
+      "file_name": "20190111_221628.jpg",
+      "size": 10872,
+      "format": "JPG",
+      "url": "",
+      "hash": "",
+      "status": "success"
+    }
+  ],
+  "annotations": [],
+  "categories": [
+    {
+      "id": 3,
+      "name": "pineapple, fig, peach, apricot, avocado",
+      "supercategory": "category_3"
+    }
+  ]
+}

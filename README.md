@@ -9,11 +9,91 @@ The DeepFruits dataset is designed for fruit recognition and calories estimation
 - **Number of images**: 21,122
 - **Number of fruit types**: 20
 - **Combinations**: 8 different fruit set combinations
-- **Format**: Images with corresponding CSV files for training and testing
+- **Format**: Images with corresponding JSON annotation files for training and testing
 
 ## Dataset Structure
 
-The dataset includes labeled images with train and test CSV files. These CSV files contain the label of each corresponding fruit class based on the image file name.
+The dataset is organized as follows:
+
+```
+.
+├── Fruits_Dataset_Train/
+│   ├── 1/
+│   │   ├── image1.jpg
+│   │   ├── image1.json
+│   │   └── ...
+│   ├── 2/
+│   │   └── ...
+│   └── ... (up to 8)
+├── Fruits_Dataset_Test/
+│   ├── 1/
+│   │   └── ...
+│   └── ... (up to 8)
+├── generate_json.py
+└── README.md
+```
+
+- `Fruits_Dataset_Train/` and `Fruits_Dataset_Test/` contain 8 subfolders (`1` to `8`), each representing a fruit combination category.
+- Each subfolder contains `.jpg` images and their corresponding `.json` annotation files with the same base name.
+
+## JSON Annotation File Structure
+
+Each image has a corresponding JSON file with the following structure:
+
+```json
+{
+  "info": {
+    "description": "data",
+    "version": "1.0",
+    "year": 2025,
+    "contributor": "search engine",
+    "source": "no_augmentation",
+    "license": {
+      "name": "Creative Commons Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "images": [
+    {
+      "id": 1234567890,
+      "width": 5184,
+      "height": 3456,
+      "file_name": "IMG_0248.JPG",
+      "size": 10603464,
+      "format": "JPG",
+      "url": "",
+      "hash": "",
+      "status": "success"
+    }
+  ],
+  "annotations": [],
+  "categories": [
+    {
+      "id": 1,
+      "name": "margo, grape, plum, kiwi, pear",
+      "supercategory": "category_1"
+    }
+  ]
+}
+```
+
+- `info`: General information about the dataset and license.
+- `images`: Metadata for the image, including a unique id, dimensions, file name, and file size.
+- `annotations`: Empty array (no bounding box or segmentation annotations).
+- `categories`: Only the category for the current image, with both the category id and the fruit names.
+
+## Category Mapping
+
+| Category ID | Fruit Combination                                      |
+|-------------|-------------------------------------------------------|
+| 1           | margo, grape, plum, kiwi, pear                        |
+| 2           | apple, orange, banana, pomegranate, strawberry        |
+| 3           | pineapple, fig, peach, apricot, avocado               |
+| 4           | summar, squash, lemon, lime, guava, raspberry         |
+| 5           | banana, pomegranate, orange, grape                    |
+| 6           | guava, pear, lime, apricot                            |
+| 7           | apple, strawberry, plum, kiwi                         |
+| 8           | avocado, lemon, raspberry                             |
 
 ## Contributors
 
